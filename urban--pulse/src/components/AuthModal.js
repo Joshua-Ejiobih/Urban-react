@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 import UserPage from '../pages/userpage/UserPage';
 
 
-const AuthModal = ({ isOpen, onClose, onSubmitSignIn, onSubmitSignUp}) => {
-  if (!isOpen) return null; 
+const AuthModal = ({ isOpen, onClose, onSubmitSignIn, onSubmitSignUp}) => { 
 
   const setIsSignIn = useSelector((state) => state.ui.isSignIn);
   const dispatch = useDispatch();
   const handleSignInMode = () => dispatch(signInMode());
   const handleSignUpMode = () => dispatch(signUpMode());
 
+  if (!isOpen) return null;
+  
   return ( 
-        <div id="authModal"  className="modal">
+  <div id="authModal"  className="modal">
   <div className="modal-content">
     <button className="close" onClick={onClose} aria-label="Close">
       <i className="fa-solid fa-arrow-right-from-bracket"></i>
